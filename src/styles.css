@@ -1,1 +1,26 @@
+
 /* You can add global styles to this file, and also import other style files */
+body {
+    /* The image used */
+    background-image: url("./assets/camera.jpg");
+    /* Full height */
+    height: 98%; 
+
+    /* Center and scale the image nicely */
+    background-size: cover;
+    background-color: rgba(44, 62, 80, 0.3);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+
+
+.mat-card{
+    background-color: rgba(255, 255, 255, 0.8) !important;
+}
