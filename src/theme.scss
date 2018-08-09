@@ -1,0 +1,37 @@
+@import '~@angular/material/theming';
+$bv-orange: (
+    50: #000000,
+    100: #f44336,
+    200: #fecdbd,
+    300: #fc9977,
+    400: #fc8259,
+    500: #fb6c3b,
+    600: #fa551d,
+    700: #f44205,
+    800: #d63a04,
+    900: #b83204,
+    A100: #000000,
+    A200: #fff7f4,
+    A400: #fc8259,
+    A700: #f44205,
+    contrast: (
+        50: $black-87-opacity,
+        100: $black-87-opacity,
+        200: $black-87-opacity,
+        300: $black-87-opacity,
+        400: $black-87-opacity,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: $black-87-opacity,
+        A200: $black-87-opacity,
+        A400: $black-87-opacity,
+        A700: white,
+    )
+);
+$light-custom-theme-primary: mat-palette($bv-orange, A100);
+$light-custom-theme-accent: mat-palette($mat-blue, A400, A400, A100);
+$light-custom-theme-warn: mat-palette($mat-red);
+$light-custom-theme: mat-light-theme($light-custom-theme-primary, $light-custom-theme-accent, $light-custom-theme-warn);

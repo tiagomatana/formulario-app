@@ -1,29 +1,77 @@
+<mat-sidenav-container fullscreen style="position:absolute;top:0;left:0;right:0;bottom:0;">
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="fixed-header">
+     <img src="assets/icon.png" class="icone" alt=""> <h1>Tiago Matana Fotografia</h1>
+    </mat-toolbar>
+    <div class="basic-container" *ngIf="!getInscrito()">
+      <h3>Concorra à um ensaio fotográfico externo <strong>GRATUITO</strong>!</h3>
+      <span>Para participar, basta prencher os campos abaixo explicando o porquê você deveria ser o ganhador.</span>
+      <p>
 
-<form action="">
-  <div class="example-container">
-    <mat-card>
-      <h1>Ensaio Fotográfico Gratuito</h1>
+        <small>O resultado será divulgado no dia 31/08/2018 às 20h.</small>
+      </p>
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)" name="controle" novalidate>
+          <div class="form-group" >
+        <p>
+          <mat-form-field>
+          <input matInput type="text" ngModel class="form-control" (ngModelChange)="nome=$event" pattern="[a-zA-Z]{3,}" name="nome" placeholder="Nome" required >
+          <mat-error *ngIf="validator(f.form.controls.nome, 'required') && (f.form.controls.nome.dirty || f.form.controls.nome.touched)">
+            Campo <strong>obrigatório</strong>
+          </mat-error>
+          <mat-error *ngIf="validator(f.form.controls.nome, 'pattern')">
+              Insira mais caracteres ou contém caracteres inválidos.
+            </mat-error>
+        </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput type="email" ngModel (ngModelChange)="email=$event" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" name="email" placeholder="Email" required>
+            <mat-error *ngIf="validator(f.form.controls.email, 'pattern')">
+              Favor preencha com um e-mail válido.
+            </mat-error>
+            <mat-error *ngIf="validator(f.form.controls.email, 'required') && (f.form.controls.email.dirty || f.form.controls.email.touched)">
+              Campo <strong>obrigatório</strong>
+            </mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput type="tel" ngModel  pattern="[0-9]{9,12}"  name="telefone" placeholder="Telefone" required>
+            <mat-hint>Insira o DDD e o número.</mat-hint>
+             <mat-error *ngIf="validator(f.form.controls.telefone, 'pattern')">
+                Favor preencha com um telefone válido.
+              </mat-error>
+              <mat-error *ngIf="validator(f.form.controls.telefone, 'required') && (f.form.controls.telefone.dirty || f.form.controls.telefone.touched)">
+                Campo <strong>obrigatório</strong>
+              </mat-error>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+          <textarea style="height: 100px" minlength="10" matInput placeholder="Motivo" maxlength="300" ngModel (ngModelChange)="motivo=$event" name="motivo" required></textarea>
+            <mat-hint>Insira no máximo 300 caracteres.</mat-hint>
+            <mat-hint align="end">{{motivo?.length || 0}}/300</mat-hint>
+              <mat-error *ngIf="validator(f.form.controls.motivo, 'required') && (f.form.controls.motivo.dirty || f.form.controls.motivo.touched)">
+                Campo <strong>obrigatório</strong>
+              </mat-error>
+              <mat-error *ngIf="validator(f.form.controls.motivo, 'minlength')">
+                  O motivo precisa ter mais do que 10 caracteres.
+                </mat-error>
+              
+          </mat-form-field>
+          
+        </p>
+        <p>
+          <button type="submit" [disabled]="!f.valid" mat-raised-button color="primary" style="color:#fff;">Inscrever-se</button>
+        </p>
+      </div>
+      </form>
+    </div>
+    <div style="text-align: center;margin-top: 50%">
 
-    <mat-form-field>
-      <input matInput type="text" placeholder="Nome" required>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput type="email" placeholder="Email" required>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput type="tel" placeholder="Telefone" required>
-    </mat-form-field>
-    
-    <mat-form-field>
-      <textarea matInput placeholder="Motivo" required></textarea>
-    </mat-form-field>
-    <button mat-raised-button color="primary" type="submit">Inscrever</button>
-    <!-- <mat-form-field>
-      <mat-select placeholder="Select">
-        <mat-option value="option">Option</mat-option>
-      </mat-select>
-    </mat-form-field> -->
-  </mat-card>
-  </div>
-</form>
+      <h1 *ngIf="getInscrito()">Obrigado!</h1>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
 
