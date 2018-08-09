@@ -1,9 +1,9 @@
-<mat-sidenav-container fullscreen style="position:absolute;top:0;left:0;right:0;bottom:0;">
+<mat-sidenav-container fxLayoutAlign="center center" fullscreen style="position:absolute;top:0;left:0;right:0;bottom:0; text-align: center">
   <mat-sidenav-content>
     <mat-toolbar color="primary" class="fixed-header">
      <img src="assets/icon.png" class="icone" alt=""> <h1>Tiago Matana Fotografia</h1>
     </mat-toolbar>
-    <div class="basic-container" *ngIf="!getInscrito()">
+    <div class="basic-container" *ngIf="!getInscrito() && !loading">
       <h3>Concorra à um ensaio fotográfico externo <strong>GRATUITO</strong>!</h3>
       <span>Para participar, basta prencher os campos abaixo explicando o porquê você deveria ser o ganhador.</span>
       <p>
@@ -61,15 +61,19 @@
           </mat-form-field>
           
         </p>
+        <br>
         <p>
           <button type="submit" [disabled]="!f.valid" mat-raised-button color="primary" style="color:#fff;">Inscrever-se</button>
         </p>
       </div>
       </form>
     </div>
-    <div style="text-align: center;margin-top: 50%">
+    <div fxLayout="row" >
 
-      <h1 *ngIf="getInscrito()">Obrigado!</h1>
+      <mat-spinner *ngIf="loading"></mat-spinner>
+    </div>
+    <div style="display: relative;margin-top: 300px" >
+      <h1 *ngIf="inscrito">Obrigado!</h1>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

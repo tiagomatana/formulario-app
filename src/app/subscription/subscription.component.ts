@@ -23,6 +23,7 @@ export class SubscriptionComponent implements OnInit {
   telefone: string;
   motivo: string;
   inscrito: boolean = false;
+  loading: boolean = false;
   constructor(private service:InscricaoService, private overlay: OverlayContainer) { 
 
   }
@@ -34,7 +35,7 @@ export class SubscriptionComponent implements OnInit {
   ngOnInit() {
     document.body.classList.add("light-custom-theme", "mat-app-background");
     this.overlay.getContainerElement().classList.add("light-custom-theme");
-    //this.service.getInscricoes();
+    this.inscrito = (/true/i).test(localStorage.getItem("subscription"));
   }
 
   getInscrito(){
@@ -52,10 +53,15 @@ export class SubscriptionComponent implements OnInit {
   }
 
   onSubmit(f: NgForm) {
+    var self = this;
+    self.loading = true;
     if(f.form.valid){
-      this.service.addInscricao(f.form.value);
-      this.inscrito =  true;
-      f.form.reset();
+      this.service.addInscricao(f.form.value).then(function(response: boolean){
+        //self.inscrito = (/true/i).test(localStorage.getItem("subscription"));
+        self.inscrito = response;
+        f.form.reset();
+        self.loading = false;
+      })
     }
   }
 

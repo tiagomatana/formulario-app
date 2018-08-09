@@ -50,6 +50,7 @@ import { SubscriptionComponent } from './subscription/subscription.component';
 import { InscricaoService } from './subscription/inscricao.service';
 import { HttpModule } from '@angular/http';
 import {enableProdMode} from '@angular/core';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   exports: [
@@ -97,6 +98,7 @@ enableProdMode();
   imports: [
     FormsModule,
     HttpModule,
+    FlexLayoutModule,
     DemoMaterialModule,
     ReactiveFormsModule,
     BrowserModule,
