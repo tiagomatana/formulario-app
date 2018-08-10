@@ -87,15 +87,15 @@ import { ParticipantsComponent } from './participants/participants.component';
     MatToolbarModule,
     MatTooltipModule,
     MatNativeDateModule,
-  ],
-  declarations: [ParticipantsComponent]
+  ]
 })
 export class DemoMaterialModule {}
 enableProdMode();
 @NgModule({
   declarations: [
     AppComponent,
-    SubscriptionComponent
+    SubscriptionComponent,
+    ParticipantsComponent
   ],
   imports: [
     FormsModule,

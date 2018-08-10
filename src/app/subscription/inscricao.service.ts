@@ -22,16 +22,18 @@ export class InscricaoService {
     return promise;
   }
 
-  insert(){
-    
-  }
 
 
   getInscricoes(){
-    this.http.get("https://tiagomatana.com/rest/view/inscricao/listar/index.php")
+    var self = this;
+    var promise = new Promise(function(resolve,reject) {
+      
+      self.http.get("https://tiagomatana.com/rest/view/inscricao/listar/index.php")
       .pipe(map(dados => dados.json()))
-      .subscribe(dados => console.log(dados));
+      .subscribe(dados => resolve(dados));
+    });
     
+    return promise;
   }
 
   setStatus(){
