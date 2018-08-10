@@ -30,10 +30,8 @@ export class InscricaoService {
   getInscricoes(){
     this.http.get("https://tiagomatana.com/rest/view/inscricao/listar/index.php")
       .pipe(map(dados => dados.json()))
-      .subscribe(dados => {
-        
-        return dados;
-      } );
+      .subscribe(dados => console.log(dados));
+    
   }
 
   setStatus(){

@@ -35,6 +35,9 @@ export class SubscriptionComponent implements OnInit {
   ngOnInit() {
     document.body.classList.add("light-custom-theme", "mat-app-background");
     this.overlay.getContainerElement().classList.add("light-custom-theme");
+    console.log(this.service.getInscricoes());
+    
+    
     this.inscrito = (/true/i).test(localStorage.getItem("subscription"));
   }
 
@@ -57,7 +60,6 @@ export class SubscriptionComponent implements OnInit {
     self.loading = true;
     if(f.form.valid){
       this.service.addInscricao(f.form.value).then(function(response: boolean){
-        //self.inscrito = (/true/i).test(localStorage.getItem("subscription"));
         self.inscrito = response;
         f.form.reset();
         self.loading = false;

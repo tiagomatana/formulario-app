@@ -51,6 +51,7 @@ import { InscricaoService } from './subscription/inscricao.service';
 import { HttpModule } from '@angular/http';
 import {enableProdMode} from '@angular/core';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { ParticipantsComponent } from './participants/participants.component';
 
 @NgModule({
   exports: [
@@ -86,7 +87,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatToolbarModule,
     MatTooltipModule,
     MatNativeDateModule,
-  ]
+  ],
+  declarations: [ParticipantsComponent]
 })
 export class DemoMaterialModule {}
 enableProdMode();

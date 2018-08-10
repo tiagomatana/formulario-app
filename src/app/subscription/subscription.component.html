@@ -1,6 +1,6 @@
-<mat-sidenav-container fxLayoutAlign="center center" fullscreen style="position:absolute;top:0;left:0;right:0;bottom:0; text-align: center">
+<mat-sidenav-container fullscreen style="position:absolute;top:0;left:0;right:0;bottom:0; text-align: center">
   <mat-sidenav-content>
-    <mat-toolbar color="primary" class="fixed-header">
+     <mat-toolbar color="primary" class="fixed-header">
      <img src="assets/icon.png" class="icone" alt=""> <h1>Tiago Matana Fotografia</h1>
     </mat-toolbar>
     <div class="basic-container" *ngIf="!getInscrito() && !loading">
@@ -68,11 +68,8 @@
       </div>
       </form>
     </div>
-    <div fxLayout="row" >
-
+    <div fxLayout="column" fxLayoutAlign="center center" fxFill>
       <mat-spinner *ngIf="loading"></mat-spinner>
-    </div>
-    <div style="display: relative;margin-top: 300px" >
       <h1 *ngIf="inscrito">Obrigado!</h1>
     </div>
   </mat-sidenav-content>
