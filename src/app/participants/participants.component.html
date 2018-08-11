@@ -15,6 +15,9 @@
       <p>
         {{inscricao.motivo}}
       </p>
+<div fxLayout="row" fxLayoutAlign="end end">
+<button (click)="deleteInscricao(inscricao.id)" mat-raised-button color="warn" style="color:#fff;">Excluir</button>
+</div>
   </mat-expansion-panel>
 </mat-accordion>
 

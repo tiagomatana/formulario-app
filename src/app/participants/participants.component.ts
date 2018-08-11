@@ -32,4 +32,12 @@ export class ParticipantsComponent implements OnInit {
     return this.inscricoes ? true : false;
   }
 
+  deleteInscricao(id:string){
+    var self = this;
+    let inscrito = {id: id};
+    self.service.deleteInscricao(inscrito).then(function(response){
+      self.inscricoes = response;
+    });
+  }
+
 }

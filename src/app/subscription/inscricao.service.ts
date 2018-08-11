@@ -8,6 +8,7 @@ import { map } from "rxjs/operators";
 export class InscricaoService {
 
   constructor(private http: Http) { }
+
   addInscricao(inscricao){
     var self = this;
     var promise = new Promise(function(resolve,reject){
@@ -22,8 +23,6 @@ export class InscricaoService {
     return promise;
   }
 
-
-
   getInscricoes(){
     var self = this;
     var promise = new Promise(function(resolve,reject) {
@@ -31,12 +30,20 @@ export class InscricaoService {
       self.http.get("https://tiagomatana.com/rest/view/inscricao/listar/index.php")
       .pipe(map(dados => dados.json()))
       .subscribe(dados => resolve(dados));
-    });
-    
+    });    
     return promise;
   }
 
-  setStatus(){
+  deleteInscricao(inscrito){
+    var self = this;
+    var promise = new Promise(function(resolve){
+      self.http.post("https://tiagomatana.com/rest/view/inscricao/excluir/index.php", JSON.stringify(inscrito))
+        .pipe(map(dados => dados.json()))
+        .subscribe(dados => resolve(dados));
 
+    });
+
+    return promise;
+      
   }
 }

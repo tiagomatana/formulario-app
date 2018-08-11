@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'formulario-app';
-  admin = (/true/i).test(localStorage.getItem("admin"));
-
+  //For all users
+  //admin = (/true/i).test(localStorage.getItem("admin"));
+  //For Admin
+  admin = true;
 }
