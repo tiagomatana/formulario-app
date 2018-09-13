@@ -1,3 +1,19 @@
+<!--                    Copyright 2018 Tiago Matana
+
+        This program is free software; you can redistribute it and/or modify
+        it under the terms of the GNU General Public License as published by
+        the Free Software Foundation; either version 3 of the License, or
+        (at your option) any later version.
+
+        This program is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        GNU General Public License for more details.
+
+        You should have received a copy of the GNU General Public License
+        along with this program; if not, write to the Free Software
+        Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA -->
+
 <mat-sidenav-container fullscreen style="position:absolute;top:0;left:0;right:0;bottom:0; text-align: center">
   <mat-sidenav-content>
      <mat-toolbar color="primary" class="fixed-header">
@@ -57,9 +73,9 @@
               <mat-error *ngIf="validator(f.form.controls.motivo, 'minlength')">
                   O motivo precisa ter mais do que 10 caracteres.
                 </mat-error>
-              
+
           </mat-form-field>
-          
+
         </p>
         <br>
         <p>
@@ -74,5 +90,3 @@
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-

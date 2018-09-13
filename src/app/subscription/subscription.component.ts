@@ -1,3 +1,19 @@
+/*              Copyright 2018 Tiago Matana
+
+        This program is free software; you can redistribute it and/or modify
+        it under the terms of the GNU General Public License as published by
+        the Free Software Foundation; either version 3 of the License, or
+        (at your option) any later version.
+
+        This program is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        GNU General Public License for more details.
+
+        You should have received a copy of the GNU General Public License
+        along with this program; if not, write to the Free Software
+        Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ */
 import { Component, OnInit } from '@angular/core';
 import {FormControl,FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import { OverlayContainer } from '@angular/cdk/overlay';
@@ -24,20 +40,20 @@ export class SubscriptionComponent implements OnInit {
   motivo: string;
   inscrito: boolean = false;
   loading: boolean = false;
-  constructor(private service:InscricaoService, private overlay: OverlayContainer) { 
+  constructor(private service:InscricaoService, private overlay: OverlayContainer) {
 
   }
 
 
-  
+
   matcher = new MyErrorStateMatcher();
 
   ngOnInit() {
     document.body.classList.add("light-custom-theme", "mat-app-background");
     this.overlay.getContainerElement().classList.add("light-custom-theme");
     console.log(this.service.getInscricoes());
-    
-    
+
+
     this.inscrito = (/true/i).test(localStorage.getItem("subscription"));
   }
 
